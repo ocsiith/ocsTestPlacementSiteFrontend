@@ -1,4 +1,4 @@
-export const serverAddress = 'https://testocs.cloudns.ph/api/' //Final
+export const serverAddress = 'http://testocs.cloudns.ph/api/' //Final
 
 export const googleClientId = '448127104593-q9celr92tf75ni47sgbt8nut7c5i2kll.apps.googleusercontent.com'
 export const googleClientIdForAdminLogin = '448127104593-q9celr92tf75ni47sgbt8nut7c5i2kll.apps.googleusercontent.com'
