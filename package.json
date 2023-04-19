@@ -1,0 +1,121 @@
+{
+	"name": "app2",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@craco/craco": "^6.1.2",
+		"@fortawesome/fontawesome-svg-core": "^1.2.28",
+		"@fortawesome/free-brands-svg-icons": "^5.13.0",
+		"@fortawesome/free-regular-svg-icons": "^5.13.0",
+		"@fortawesome/free-solid-svg-icons": "^5.13.0",
+		"@fortawesome/react-fontawesome": "^0.1.9",
+		"@iconify/icons-mdi": "^1.0.116",
+		"@iconify/react": "^1.1.3",
+		"@material-ui/core": "^4.11.0",
+		"@material-ui/icons": "^4.9.1",
+		"@material-ui/lab": "^4.0.0-alpha.56",
+		"@material-ui/pickers": "^3.2.10",
+		"@rollup/plugin-node-resolve": "^13.0.0",
+		"@terwanerik/scrolltrigger": "^1.0.4",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"@types/gapi": "^0.0.39",
+		"@types/gapi.auth2": "^0.0.52",
+		"@types/gapi.client.drive": "^3.0.13",
+		"aos": "^2.3.4",
+		"array-move": "^2.2.1",
+		"axios": "^0.21.1",
+		"bootstrap": "^4.5.0",
+		"chart.js": "^2.9.3",
+		"chartjs-plugin-error-bars": "^1.2.2",
+		"clone-deep": "^4.0.1",
+		"clsx": "^1.1.0",
+		"craco-esbuild": "^0.3.2",
+		"d3": "^5.16.0",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"formik": "^2.1.5",
+		"formik-material-ui": "^2.0.1",
+		"fs": "^0.0.1-security",
+		"global": "^4.4.0",
+		"google-map-react": "^1.1.7",
+		"google-maps-react": "^2.0.6",
+		"html-to-pdfmake": "1.2.5",
+		"jszip": "^3.6.0",
+		"material-table": "^1.69.2",
+		"material-ui-confirm": "^2.0.4",
+		"material-ui-popup-state": "^1.5.3",
+		"node-zopfli-es": "^1.0.7",
+		"path": "^0.12.7",
+		"pdfmake": "0.1.65",
+		"query-string": "^6.11.1",
+		"react": "^16.13.1",
+		"react-bootstrap": "^1.3.0",
+		"react-chartjs-2": "^2.9.0",
+		"react-checkbox-tree": "^1.6.0",
+		"react-dom": "^16.13.1",
+		"react-dropdown-tree-select": "^2.3.2",
+		"react-google-login": "^5.2.2",
+		"react-google-recaptcha": "^2.0.1",
+		"react-html-parser": "^2.0.2",
+		"react-icons": "^3.10.0",
+		"react-lazyload": "^2.6.8",
+		"react-multi-carousel": "^2.5.5",
+		"react-player": "^2.6.2",
+		"react-render-html": "^0.6.0",
+		"react-responsive": "^8.1.0",
+		"react-router-dom": "^5.1.2",
+		"react-router-page-transition": "^3.1.0",
+		"react-rte": "^0.16.1",
+		"react-scripts": "^4.0.3",
+		"react-sortable-hoc": "^1.11.0",
+		"react-transition-group": "^4.4.1",
+		"scrollmagic": "^2.0.7",
+		"semantic-ui-react": "^0.88.2",
+		"sfcookies": "^1.0.2",
+		"shrink-ray-current": "^4.1.2",
+		"styled-components": "^5.3.5",
+		"tabletop": "^1.6.3"
+	},
+	"scripts": {
+		"start": "craco start",
+		"build": "craco build",
+		"push": "git checkout html_branch && git pull && git checkout master && rm -rf ./build && git add . && git commit -am 'latest-build' && git merge html_branch && react-scripts build && git add . && git commit -am 'latest-build' && git push",
+		"prod": "cd src/constants && mv APIaddress.js DevAPI.js && mv ProdAPI.js APIaddress.js && cd ../.. && yarn install && yarn build && cd src/constants && mv APIaddress.js ProdAPI.js && mv DevAPI.js APIaddress.js && cd ../..",
+		"pretty": "npx prettier . --write",
+		"prepare": "husky install",
+		"docker:build": "docker build . -t ocsfront",
+		"docker:run": "docker run -p 5000:80 -d ocsfront",
+		"test": "git pull && cd src/constants && mv APIaddress.js DevAPI.js && mv TestAPI.js APIaddress.js && cd ../.. && yarn install && yarn build && cd src/constants && mv APIaddress.js TestAPI.js && mv DevAPI.js APIaddress.js && cd ../.. && pm2 restart front"
+	},
+	"eslintConfig": {
+		"extends": "react-app",
+		"overrides": [
+			{
+				"files": [
+					"public/pwabuilder-sw.js"
+				],
+				"env": {
+					"serviceworker": true
+				}
+			}
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"husky": "^6.0.0",
+		"npm-watch": "^0.6.0"
+	}
+}
